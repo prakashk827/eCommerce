@@ -94,7 +94,7 @@ public class HomeController {
 		
 		emp.getEmpAddressList().add(add1);
 		emp.getEmpAddressList().add(add2);
-		
+		System.out.println("JUU");
 		employeeRepository.save(emp);
 		return "homePage";
 	}
