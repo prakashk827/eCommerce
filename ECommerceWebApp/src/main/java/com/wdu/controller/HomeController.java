@@ -102,13 +102,6 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String homePage(Model model) {
-		
-		
-		
-		
-		
-		
-		
 		//Section Display
 		model.addAttribute("section",sectionDisplayService.getSectionDisplay());
 		//Titile
