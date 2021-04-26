@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Blog {
@@ -23,6 +24,8 @@ public class Blog {
 	private String blogDecsription;
 	private String postedBy = "admin";
 	private String displayType;
+	@Transient
+	private String updateBtn;
 	
 	@ElementCollection
 	private List<BlogComments> blogCommentsList = new ArrayList<>();
@@ -98,6 +101,16 @@ public class Blog {
 	public void setBlogCommentsList(List<BlogComments> blogCommentsList) {
 		this.blogCommentsList = blogCommentsList;
 	}
+
+	public String getUpdateBtn() {
+		return updateBtn;
+	}
+
+	public void setUpdateBtn(String updateBtn) {
+		this.updateBtn = updateBtn;
+	}
+	
+	
 	
 	
 	

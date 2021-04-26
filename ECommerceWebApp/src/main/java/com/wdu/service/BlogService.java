@@ -25,5 +25,9 @@ public class BlogService {
 		return blogRepository.findById(id).get();
 		
 	}
+	public void deleteById(Integer id) {
+		blogRepository.deleteById(id);
+		
+	}
 	
 }

@@ -1,4 +1,7 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="header.jsp"></jsp:include>
 <body class="app sidebar-mini">
 
@@ -63,6 +66,55 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		<!-- list -->
+		<div class="row">
+		
+			<div class="col-md-12">
+		
+				<div class="tile">
+				<h2>Showing all counter</h2>
+					<div class="tile-body">
+						<div class="table-responsive">
+							<table class="table table-hover table-bordered" id="sampleTable">
+								<thead>
+									<tr>
+										<th>Post Title</th>
+										<th>Posted Date </th>
+										<th>Delete</th>
+										<th>Update</th>
+
+									</tr>
+								</thead>
+								<tbody>
+							
+									<c:forEach  items="${blogList}" var="val">
+										<tr>
+											<td>${val.title}</td>
+											<td>${val.postedDate}</td>
+											<td>
+											<a href="/admin/blog/delete/${val.id}">
+											<button class="btn btn-danger btn-sm">Delete</button>
+											</a>
+											</td>
+											<td>
+											<a href="/admin/blog/add">
+											<button type="submit" name="updateBtn"  value="update" class="btn btn-success btn-sm">Update</button>
+											</a>
+											</td>
+										</tr>
+
+									</c:forEach>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 
 
 	</main>
