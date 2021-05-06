@@ -19,7 +19,7 @@ public class BlogController {
 	
 	@RequestMapping("/blog/add")
 	public String add(Model model,Blog blog) {
-		System.out.println(blog.getUpdateBtn());
+		model.addAttribute("blog", new Blog());
 		model.addAttribute("blogList", blogService.getAllBlogs());
 		return "admin/blog";
 	}
@@ -28,6 +28,12 @@ public class BlogController {
 	public String delete(@PathVariable Integer id) {
 		blogService.deleteById(id);
 		return "redirect:/admin/blog/add";
+	}
+	
+	@GetMapping("/blog/update/{id}")
+	public String update(@PathVariable Integer id,Model model) {
+		model.addAttribute("blog",blogService.findById(id));
+		return "/admin/blog";
 	}
 	
 	
